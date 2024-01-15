@@ -5,7 +5,7 @@ import { Vector3 } from 'three';
 import { useKeyboard } from '../hooks/useKeyboard';
 
 const CHARACTER_SPEED = 3;
-const CHARACTER_JUMP_FORCE = 10;
+const CHARACTER_JUMP_FORCE = 4;
 
 const Player = () => {
   const { moveBackward, moveForward, moveLeft, moveRight, jump } =
@@ -53,6 +53,9 @@ const Player = () => {
       .applyEuler(camera.rotation);
 
     api.velocity.set(direction.x, vel.current[1], direction.z);
+    if (jump && Math.abs(vel.current[1]) < 0.05) {
+      api.velocity.set(vel.current[0], CHARACTER_JUMP_FORCE, vel.current[2]);
+    }
   });
 
   return <mesh ref={ref} />;

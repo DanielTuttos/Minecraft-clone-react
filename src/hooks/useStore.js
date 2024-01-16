@@ -15,8 +15,23 @@ export const useStore = create((set) => ({
       texture: 'glass',
     },
   ],
-  addCube: () => {},
-  removeCube: () => {},
+  addCube: (x, y, z) => {
+    set((state) => ({
+      cubes: [
+        ...state.cubes,
+        {
+          id: nanoid(),
+          texture: state.texture,
+          pos: [x, y, z],
+        },
+      ],
+    }));
+  },
+  removeCube: (id) => {
+    set((state) => ({
+      cubes: state.cubes.filter((cube) => cube.id !== id),
+    }));
+  },
   setTexture: () => {},
   saveWorld: () => {},
   resetWorld: () => {},

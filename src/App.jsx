@@ -5,7 +5,7 @@ import Ground from './components/Ground';
 import Player from './components/Player';
 import Cubes from './components/Cubes';
 import TextureSelect from './components/TextureSelect';
-// import Fpv from './components/Fpv';
+import FirstPersonView from './components/FirstPersonView';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Canvas>
         <Sky sunPosition={[100, 100, 20]} />
         <ambientLight intensity={0.5} />
-        <Fpv />
+        <FirstPersonView />
         <Physics>
           <Cubes />
           <Player />

@@ -5,7 +5,7 @@ import Ground from './components/Ground';
 import Player from './components/Player';
 import Cubes from './components/Cubes';
 import TextureSelect from './components/TextureSelect';
-import Fpv from './components/Fpv';
+// import Fpv from './components/Fpv';
 
 function App() {
   return (
